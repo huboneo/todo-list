@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {StylesProvider} from '@material-ui/styles';
+
+import {AuthenticationStateProvider} from './states/authentication.state';
+import {TimeStateProvider} from './states/time.state';
+import {SearchStateProvider} from './states/search.state';
+
+import AuthenticationGate from './components/authentication-gate/authentication-gate';
+import Main from './components/main/main';
+import Header from './components/header/header';
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    return (
+        <StylesProvider injectFirst={true}>
+            <TimeStateProvider>
+                <AuthenticationStateProvider>
+                    <AuthenticationGate>
+                        <SearchStateProvider>
+                            <Header/>
+                            <Main/>
+                        </SearchStateProvider>
+                    </AuthenticationGate>
+                </AuthenticationStateProvider>
+            </TimeStateProvider>
+        </StylesProvider>
+    );
+};
 
 export default App;

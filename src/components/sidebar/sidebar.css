@@ -1,0 +1,16 @@
+.sidebar {
+    width: 25vw;
+    border-right: 1px solid rgba(0, 0, 0, 0.23);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar__buttons {
+    height: 60px;
+    margin: 20px;
+}
+
+.sidebar__add-button, .sidebar__reset-button {
+    flex: 1;
+}

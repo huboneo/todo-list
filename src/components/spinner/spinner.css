@@ -1,0 +1,104 @@
+/* Courtesy of https://loading.io/css/ */
+.neo4j-lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+}
+
+.neo4j-lds-roller div {
+    animation: neo4j-lds-roller 1.6s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 32px 32px;
+}
+
+.neo4j-lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #6c757d;
+    margin: -3px 0 0 -3px;
+}
+
+.neo4j-lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+
+.neo4j-lds-roller div:nth-child(1):after {
+    top: 50px;
+    left: 50px;
+}
+
+.neo4j-lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+
+.neo4j-lds-roller div:nth-child(2):after {
+    top: 54px;
+    left: 45px;
+}
+
+.neo4j-lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+
+.neo4j-lds-roller div:nth-child(3):after {
+    top: 57px;
+    left: 39px;
+}
+
+.neo4j-lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+
+.neo4j-lds-roller div:nth-child(4):after {
+    top: 58px;
+    left: 32px;
+}
+
+.neo4j-lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.neo4j-lds-roller div:nth-child(5):after {
+    top: 57px;
+    left: 25px;
+}
+
+.neo4j-lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+
+.neo4j-lds-roller div:nth-child(6):after {
+    top: 54px;
+    left: 19px;
+}
+
+.neo4j-lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+
+.neo4j-lds-roller div:nth-child(7):after {
+    top: 50px;
+    left: 14px;
+}
+
+.neo4j-lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+
+.neo4j-lds-roller div:nth-child(8):after {
+    top: 45px;
+    left: 10px;
+}
+
+@keyframes neo4j-lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

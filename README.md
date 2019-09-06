@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This project showcases a possible application of [State management in 10 lines of code](https://medium.com/simply/state-management-with-react-hooks-and-context-api-at-10-lines-of-code-baf6be8302c)
+
 ## Available Scripts
 
 In the project directory, you can run:

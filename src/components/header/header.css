@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.23);
+}
+
+.header__search {
+    height: 60px;
+    margin: 10px;
+    width: 300px;
+}
+
+.header__logo {
+    height: 100%;
+}
+
+.header__time {
+    padding: 28px 20px 0;
+    width: 280px;
+    text-align: right;
+}

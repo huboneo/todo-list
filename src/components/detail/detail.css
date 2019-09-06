@@ -1,0 +1,12 @@
+.detail {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail__card {
+    margin-top: 50px;
+    min-height: 250px;
+    max-width: 40%;
+}
