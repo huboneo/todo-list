@@ -3,16 +3,21 @@ import createStateContext, {IAction} from './state';
 const initialState: ISearchState = '';
 const {
     useStateValue,
-    StateProvider
+    StateProvider,
+    StateContext
 } = createStateContext(detailReducer, initialState);
 
 // we do this only for DX
+const DISPLAY_NAME = 'SearchState';
 const useSearchState = useStateValue;
-const SearchStateProvider = StateProvider;
+const SearchState = StateProvider;
+
+StateContext.displayName = DISPLAY_NAME;
+SearchState.displayName = DISPLAY_NAME;
 
 export {
     useSearchState,
-    SearchStateProvider
+    SearchState
 };
 
 /**

@@ -11,16 +11,21 @@ const STORAGE_KEY = 'foo-storage';
 const initialState: ITodoState = getInitialState();
 const {
     useStateValue,
-    StateProvider
+    StateProvider,
+    StateContext
 } = createStateContext(todoReducer, initialState, [dispatchIntercept, useLocalStorage]);
 
 // we do this only for DX
+const DISPLAY_NAME = 'TodoState';
 const useTodoState = useStateValue;
-const TodoStateProvider = StateProvider;
+const TodoState = StateProvider;
+
+StateContext.displayName = DISPLAY_NAME;
+TodoState.displayName = DISPLAY_NAME;
 
 export {
     useTodoState,
-    TodoStateProvider
+    TodoState
 };
 
 /**

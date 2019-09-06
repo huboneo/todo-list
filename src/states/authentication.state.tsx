@@ -5,16 +5,21 @@ const initialState: IAuthenticationState = {
 };
 const {
     useStateValue,
-    StateProvider
+    StateProvider,
+    StateContext
 } = createStateContext(authenticationReducer, initialState);
 
 // we do this only for DX
+const DISPLAY_NAME = 'AuthenticationState';
 const useAuthenticationState = useStateValue;
-const AuthenticationStateProvider = StateProvider;
+const AuthenticationState = StateProvider;
+
+StateContext.displayName = DISPLAY_NAME;
+AuthenticationState.displayName = DISPLAY_NAME;
 
 export {
     useAuthenticationState,
-    AuthenticationStateProvider
+    AuthenticationState
 };
 
 /**

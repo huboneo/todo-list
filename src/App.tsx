@@ -1,9 +1,9 @@
 import React from 'react';
 import {StylesProvider} from '@material-ui/styles';
 
-import {AuthenticationStateProvider} from './states/authentication.state';
-import {TimeStateProvider} from './states/time.state';
-import {SearchStateProvider} from './states/search.state';
+import {AuthenticationState} from './states/authentication.state';
+import {TimeState} from './states/time.state';
+import {SearchState} from './states/search.state';
 
 import AuthenticationGate from './components/authentication-gate/authentication-gate';
 import Main from './components/main/main';
@@ -12,16 +12,16 @@ import Header from './components/header/header';
 const App: React.FC = () => {
     return (
         <StylesProvider injectFirst={true}>
-            <TimeStateProvider>
-                <AuthenticationStateProvider>
+            <TimeState>
+                <AuthenticationState>
                     <AuthenticationGate>
-                        <SearchStateProvider>
+                        <SearchState>
                             <Header/>
                             <Main/>
-                        </SearchStateProvider>
+                        </SearchState>
                     </AuthenticationGate>
-                </AuthenticationStateProvider>
-            </TimeStateProvider>
+                </AuthenticationState>
+            </TimeState>
         </StylesProvider>
     );
 };

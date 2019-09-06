@@ -6,16 +6,21 @@ import {ITodo} from './todo.state';
 const initialState: IDetailState = null;
 const {
     useStateValue,
-    StateProvider
+    StateProvider,
+    StateContext
 } = createStateContext(detailReducer, initialState, dispatchIntercept);
 
 // we do this only for DX
+const DISPLAY_NAME = 'DetailState';
 const useDetailState = useStateValue;
-const DetailStateProvider = StateProvider;
+const DetailState = StateProvider;
+
+StateContext.displayName = DISPLAY_NAME;
+DetailState.displayName = DISPLAY_NAME;
 
 export {
     useDetailState,
-    DetailStateProvider
+    DetailState
 };
 
 /**

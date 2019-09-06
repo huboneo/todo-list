@@ -5,16 +5,21 @@ import createStateContext, {IAction} from './state';
 const initialState: ITimeState = Date.now();
 const {
     useStateValue,
-    StateProvider
+    StateProvider,
+    StateContext
 } = createStateContext(timeReducer, initialState, useInterval);
 
 // we do this only for DX
+const DISPLAY_NAME = 'TimeState';
 const useTimeState = useStateValue;
-const TimeStateProvider = StateProvider;
+const TimeState = StateProvider;
+
+StateContext.displayName = DISPLAY_NAME;
+TimeState.displayName = DISPLAY_NAME;
 
 export {
     useTimeState,
-    TimeStateProvider
+    TimeState
 };
 
 /**
