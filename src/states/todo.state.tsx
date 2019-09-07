@@ -6,6 +6,7 @@ import dispatchIntercept from '../utils/dispatch-intercept';
 import createStateContext, {IAction} from './state';
 
 import DUMMY_TODOS from '../data/dummy-todos'
+import repeater from '../utils/repeater';
 
 const STORAGE_KEY = 'foo-storage';
 const initialState: ITodoState = getInitialState();
@@ -13,7 +14,7 @@ const {
     useStateValue,
     StateProvider,
     StateContext
-} = createStateContext(todoReducer, initialState, [dispatchIntercept, useLocalStorage]);
+} = createStateContext(todoReducer, initialState, [dispatchIntercept, useLocalStorage, repeater('todo')]);
 
 // we do this only for DX
 const DISPLAY_NAME = 'TodoState';

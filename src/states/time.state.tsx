@@ -1,13 +1,14 @@
 import {useEffect} from 'react';
 
 import createStateContext, {IAction} from './state';
+import repeater from '../utils/repeater';
 
 const initialState: ITimeState = Date.now();
 const {
     useStateValue,
     StateProvider,
     StateContext
-} = createStateContext(timeReducer, initialState, useInterval);
+} = createStateContext(timeReducer, initialState, [useInterval, repeater('time')]);
 
 // we do this only for DX
 const DISPLAY_NAME = 'TimeState';
