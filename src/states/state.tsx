@@ -33,6 +33,7 @@ export type IStateProvider = FunctionComponent<PropsWithChildren<any>>
 export interface IAction {
     type: string;
     payload?: any;
+    __repeated?: boolean;
 }
 
 export type ContextState<T> = [T, Dispatch<IAction>];

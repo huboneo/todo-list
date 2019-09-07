@@ -2,13 +2,14 @@ import createStateContext, {IAction} from './state';
 
 import dispatchIntercept from '../utils/dispatch-intercept';
 import {ITodo} from './todo.state';
+import repeater from '../utils/repeater';
 
 const initialState: IDetailState = null;
 const {
     useStateValue,
     StateProvider,
     StateContext
-} = createStateContext(detailReducer, initialState, dispatchIntercept);
+} = createStateContext(detailReducer, initialState, [dispatchIntercept, repeater('detail')]);
 
 // we do this only for DX
 const DISPLAY_NAME = 'DetailState';
