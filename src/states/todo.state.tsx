@@ -3,7 +3,7 @@ import {useEffect} from 'react';
 import {loremIpsum} from 'lorem-ipsum'
 
 import dispatchIntercept from '../utils/dispatch-intercept';
-import createStateContext, {IAction} from './state';
+import createStateContext, {ContextState, IAction} from './state';
 
 import DUMMY_TODOS from '../data/dummy-todos'
 
@@ -76,7 +76,7 @@ export interface ITodo {
 /**
  * Middleware
  */
-function useLocalStorage(state: ITodoState) {
+function useLocalStorage<ITodoState>([state]: ContextState<ITodoState>) {
     useEffect(() => {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
     }, [state])

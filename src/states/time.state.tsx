@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 
-import createStateContext, {IAction} from './state';
+import createStateContext, {ContextState, IAction} from './state';
 
 const initialState: ITimeState = Date.now();
 const {
@@ -50,7 +50,7 @@ export type ITimeState = number;
 /**
  * Middleware
  */
-function useInterval(state: any, dispatch: any) {
+function useInterval<ITimeState>([, dispatch]: ContextState<ITimeState>) {
     useEffect(() => {
         const interval = setInterval(() => {
             dispatch(setTime(Date.now()))

@@ -9,17 +9,13 @@ import React, {
 } from 'react';
 import {reduce} from 'lodash-es';
 
-export default function createStateContext<T>(reducer: Reducer<T>, initialState: T, stateMiddleware: any = []): IStateContext<T> {
-    const stateMiddlewares = Array.isArray(stateMiddleware) ? stateMiddleware : [stateMiddleware];
+export default function createStateContext<T>(reducer: Reducer<T>, initialState: T, middleware: StateMiddleware | StateMiddleware[] = []): IStateContext<T> {
+    const middlewares = Array.isArray(middleware) ? middleware : [middleware];
     const StateContext = createContext<ContextState<T>>([initialState, () => null]);
     const StateProvider: IStateProvider = ({children}) => {
-        const [state, dispatcher] = reduce(stateMiddlewares, ([prevState, prevDispatch], middleware) => {
-            const [modifiedState, modifiedDispatch]: ContextState<T> = middleware(prevState, prevDispatch) || [];
+        const stateContext = reduce(middlewares, (agg, mw) => mw(agg) || agg, useReducer(reducer, initialState));
 
-            return [modifiedState || prevState, modifiedDispatch || prevDispatch]
-        }, useReducer(reducer, initialState));
-
-        return <StateContext.Provider value={[state, dispatcher]}>
+        return <StateContext.Provider value={stateContext}>
             {children}
         </StateContext.Provider>
     };
@@ -29,6 +25,8 @@ export default function createStateContext<T>(reducer: Reducer<T>, initialState:
 }
 
 export type IStateProvider = FunctionComponent<PropsWithChildren<any>>
+
+export type StateMiddleware = <T>(stateContext: ContextState<T>) => ContextState<T> | void
 
 export interface IAction {
     type: string;
