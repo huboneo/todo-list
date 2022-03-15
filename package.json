@@ -13,7 +13,7 @@
     "@types/react-dom": "16.9.0",
     "@types/recompose": "0.30.7",
     "@types/uuid": "3.4.5",
-    "lodash-es": "4.17.15",
+    "lodash-es": "4.17.21",
     "lorem-ipsum": "2.0.3",
     "react": "16.9.0",
     "react-dom": "16.9.0",
